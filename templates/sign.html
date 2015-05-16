@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="navbar nav-default">	
+</div>
+<a class="btn btn-default btn-right" href="/"><<返回主页</a>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+	<form action="/sign" method="post">
+		<div class="form-group">
+		<label for="sign-username">
+			用户名
+		</label>
+		<input type="text" class="form-control" name="sign-username">
+		</div>
+		<div class="form-group">
+		<label for="sign-password">
+			密码
+		</label>
+		<input type="text" class="form-control" name="sign-password">
+		</div>
+		<div class="form-group">
+		<label for="password-repeat">
+			重新输入密码
+		</label>
+		<input type="text" class="form-control" name="password-repeat">
+		</div>
+		<input type="submit" class="form-control" value="注册" name="sign" onclick="return validate();">
+
+	</form>
+	</div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

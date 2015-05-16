@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% if session['login'] %}
+	    
+{{ super() }}
+
+<div class="row">
+	<div class="col-md-2">
+		<div class="sidebar">
+			<div class="nav nav-stacked">
+				<ul class="nav nav-tabs nav-stacked">
+				<li class="active"><a href="#home">联系我们</a></li>   
+				<li><a href="#introduction">简明教程</a></li>
+				<li><a href="#tutorial">预览设置</a></li> 
+				<li><a href="#gallery">项目分析</a></li> 
+				<li><a href="#contact">联系方式</a></li> 
+			</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-10">
+		<h1 id="home">联系我们</h1>
+		<h2 id="introduction">简明教程</h2>
+		<p>出于性能的考虑，所有图标都需要一个基类和对应每个图标的类。把下面的代码放在任何地方都可以正常使用。注意，为了设置正确的内补（padding），务必在图标和文本之间添加一个空格。</p>
+		<h2 id="tutorial">预览</h2>
+		<p>现代的辅助技术能够识别并朗读由 CSS 生成的内容和特定的 Unicode 字符。为了避免 屏幕识读设备抓取非故意的和可能产生混淆的输出内容（尤其是当图标纯粹作为装饰用途时），我们为这些图标设置了 aria-hidden="true" 属性。</p>
+		<h2 id="gallery">项目</h2>
+		<p>如果你使用图标是为了表达某些含义（不仅仅是为了装饰用），请确保你所要表达的意思能够通过被辅助设备识别，例如，包含额外的内容并通过 .sr-only 类让其在视觉上表现出隐藏的效果。如果你所创建的组件不包含任何文本内容（例如， 内只包含了一个图标），你应当提供其他的内容来表示这个控件的意图，这样就能让使用辅助设备的用户知道其作用了。这种情况下，你可以为控件添加 aria-label 属相。</p>
+		<h2 id="contact">联系方式</h2>
+		<p>出于性能的考虑，所有图标都需要一个基类和对应每个图标的类。把下面的代码放在任何地方都可以正常使用。注意，为了设置正确的内补（padding），务必在图标和文本之间添加一个空格。</p>
+
+	</div>
+</div>
+		
+{% else %}
+<div class="navbar nav-default">	
+</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="jumbotron">
+				<h2>加入我们</h2>
+				<p><a href="/sign">注册</a>,
+				已经注册过啦？直接<a id="btn-login">登入</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<form action="/login" method="post">
+				<div class="form-group">
+					<label for="username">用户名</label>
+					<input type="text" class="form-control" name="username" id="login-username">
+				</div>
+				<div class="form-group">
+					<label for="password">密码</label>
+					<input type="password" class="form-control" name="password">
+				</div>
+				<div class="form-group">
+					<input type="checkbox" name="cbname">下次自动登陆
+				</div>
+				<input type="submit" class="btn btn-primary" value="登陆">
+			</form>
+		</div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}
